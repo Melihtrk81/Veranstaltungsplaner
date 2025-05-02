@@ -16,16 +16,27 @@
     header {
       background: #2c3e50;
       color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .hero-text {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtext {
+      font-size: 1.2em;
+      color: #e0e0e0;
+      margin-bottom: 40px;
     }
 
     header img {
       max-width: 90%;
       height: auto;
-      margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     .container {
@@ -37,12 +48,8 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    h1, h2, h3 {
+    h2, h3 {
       color: #2c3e50;
-    }
-
-    ul {
-      list-style: disc inside;
     }
 
     .upload-section {
@@ -109,13 +116,13 @@
 <body>
 
   <header>
-    <h1>Projekt: Veranstaltungsplaner</h1>
-    <p>Dein Event beginnt hier – mit deiner einzigartigen Vision</p>
+    <div class="hero-text">Dein Event beginnt hier – mit deiner einzigartigen Vision.</div>
+    <div class="hero-subtext">Erstelle, plane und teile unvergessliche Veranstaltungen – ganz nach deinem Stil.</div>
     <img src="img/startseite.gif" alt="Startseitenbild">
   </header>
 
   <div class="container">
-    <h2>Veranstaltungen (Event-Kategorien)</h2>
+    <h2>Inspirationsbereiche (Event-Kategorien)</h2>
     <div class="card-grid">
       <div class="card">
         <img src="img/wandern.jpg" alt="Natur & Outdoor">
@@ -128,21 +135,21 @@
         <img src="img/kultur.jpg" alt="Kultur & Community">
         <div class="card-content">
           <h3>Kultur- & Gemeinschaftsevents</h3>
-          <p>Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.</p>
+          <p>Organisiere kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.</p>
         </div>
       </div>
       <div class="card">
         <img src="img/film.jpg" alt="Abenteuer & Action">
         <div class="card-content">
           <h3>Abenteuer & Erlebnisse</h3>
-          <p>Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.</p>
+          <p>Erstelle Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.</p>
         </div>
       </div>
       <div class="card">
         <img src="img/food.jpg" alt="Kulinarik & Genuss">
         <div class="card-content">
           <h3>Genuss- & Kulinarik-Events</h3>
-          <p>Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse.</p>
+          <p>Veranstalte kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse.</p>
         </div>
       </div>
     </div>
