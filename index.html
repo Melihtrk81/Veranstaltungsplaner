@@ -13,6 +13,24 @@
       color: #333;
     }
 
+    /* Navigation */
+    .topbar {
+      background-color: #2c3e50;
+      padding: 15px 20px;
+      text-align: right;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .topbar a:hover {
+      text-decoration: underline;
+    }
+
     header {
       background: #2c3e50;
       color: #fff;
@@ -115,6 +133,14 @@
 </head>
 <body>
 
+  <!-- Gemeinsame Navigation -->
+  <nav class="topbar">
+    <a href="index.html">Startseite</a>
+    <a href="#">Sprache</a>
+    <a href="#">Login</a>
+    <a href="#">Kontakt</a>
+  </nav>
+
   <header>
     <div class="hero-text">Dein Event beginnt hier – mit deiner einzigartigen Vision.</div>
     <img src="img/startseite.gif" alt="Startseitenbild">
@@ -123,34 +149,42 @@
   <div class="container">
     <h2>Veranstaltungen</h2>
     <div class="card-grid">
-      <div class="card">
-        <img src="img/wandern.jpg" alt="Natur & Outdoor">
-        <div class="card-content">
-          <h3>Outdoor-Events & Natur</h3>
-          <p>Plane spannende Erlebnisse in der Natur – von geführten Wanderungen bis zu Yoga unter freiem Himmel.</p>
+      <a href="outdoor.html" style="text-decoration: none;">
+        <div class="card">
+          <img src="img/wandern.jpg" alt="Natur & Outdoor">
+          <div class="card-content">
+            <h3>Outdoor-Events & Natur</h3>
+            <p>Plane spannende Erlebnisse in der Natur – von geführten Wanderungen bis zu Yoga unter freiem Himmel.</p>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <img src="img/kultur.jpg" alt="Kultur & Community">
-        <div class="card-content">
-          <h3>Kultur- & Gemeinschaftsevents</h3>
-          <p>Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.</p>
+      </a>
+      <a href="kultur.html" style="text-decoration: none;">
+        <div class="card">
+          <img src="img/kultur.jpg" alt="Kultur & Community">
+          <div class="card-content">
+            <h3>Kultur- & Gemeinschaftsevents</h3>
+            <p>Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.</p>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <img src="img/film.jpg" alt="Abenteuer & Action">
-        <div class="card-content">
-          <h3>Abenteuer & Erlebnisse</h3>
-          <p>Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.</p>
+      </a>
+      <a href="abenteuer.html" style="text-decoration: none;">
+        <div class="card">
+          <img src="img/film.jpg" alt="Abenteuer & Action">
+          <div class="card-content">
+            <h3>Abenteuer & Erlebnisse</h3>
+            <p>Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.</p>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <img src="img/food.jpg" alt="Kulinarik & Genuss">
-        <div class="card-content">
-          <h3>Genuss- & Kulinarik-Events</h3>
-          <p>Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse.</p>
+      </a>
+      <a href="kulinarik.html" style="text-decoration: none;">
+        <div class="card">
+          <img src="img/food.jpg" alt="Kulinarik & Genuss">
+          <div class="card-content">
+            <h3>Genuss- & Kulinarik-Events</h3>
+            <p>Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse.</p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="upload-section">
