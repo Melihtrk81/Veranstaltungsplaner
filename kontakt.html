@@ -3,140 +3,99 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Kontakt – Veranstaltungsplaner</title>
+  <title>Kontakt</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       margin: 0;
       padding: 0;
-      color: #333;
     }
-
     .topbar {
       background-color: #2c3e50;
       padding: 15px 20px;
-      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
     .topbar a {
       color: #fff;
       text-decoration: none;
-      margin-left: 20px;
       font-weight: bold;
     }
-
-    .topbar a:hover {
-      text-decoration: underline;
+    .language-selector select {
+      padding: 5px;
+      border-radius: 4px;
+      border: none;
+      font-weight: bold;
     }
-
     .container {
-      max-width: 800px;
-      margin: 50px auto;
+      max-width: 700px;
+      margin: 60px auto;
       padding: 30px;
       background: #fff;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
     h1 {
       color: #2c3e50;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.1em;
-      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-
-  
-<nav class="topbar">
-  <a href="index.html">Startseite</a>
-  
-<div class="language-selector" style="display:inline-block; margin-left: 20px;">
-  <select id="language-switcher" style="padding: 5px; border-radius: 4px; border: none; font-weight: bold;">
-    <option value="de">Deutsch</option>
-    <option value="fr">Français</option>
-    <option value="it">Italiano</option>
-    <option value="en">English</option>
-  </select>
-</div>
-
-</nav>
-
+  <nav class="topbar">
+    <a href="index.html">Startseite</a>
+    <div class="language-selector">
+      <select id="language-switcher">
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </nav>
 
   <div class="container">
-    <h1 id="Kontakt-title">Kontakt</h1>
-    <p><strong>Name:</strong> Melih Özdemir</p>
-    <p><strong>Adresse:</strong> Teststrasse 1, 8001 Zürich</p>
-    <p><strong>Projekt:</strong> Veranstaltungsplaner – FFHS HCIM</p>
+    <h1 id="contact-title">Kontakt</h1>
+    <p id="contact-details">Melih Özdemir, Teststrasse 1, 8001 Zürich, Projekt FFHS HCIM</p>
   </div>
-
-
 
 <script>
 const translations = {
   de: {
     contactTitle: "Kontakt",
-    loginTitle: "Login",
-    userLabel: "Benutzername",
-    passLabel: "Passwort",
-    forgot: "Passwort vergessen?",
-    loginBtn: "Login"
+    contactDetails: "Melih Özdemir, Teststrasse 1, 8001 Zürich, Projekt FFHS HCIM"
   },
   fr: {
     contactTitle: "Contact",
-    loginTitle: "Connexion",
-    userLabel: "Nom d'utilisateur",
-    passLabel: "Mot de passe",
-    forgot: "Mot de passe oublié ?",
-    loginBtn: "Connexion"
+    contactDetails: "Melih Özdemir, Rue Test 1, 8001 Zurich, Projet FFHS HCIM"
   },
   it: {
     contactTitle: "Contatto",
-    loginTitle: "Accesso",
-    userLabel: "Nome utente",
-    passLabel: "Password",
-    forgot: "Password dimenticata?",
-    loginBtn: "Accedi"
+    contactDetails: "Melih Özdemir, Via Test 1, 8001 Zurigo, Progetto FFHS HCIM"
   },
   en: {
     contactTitle: "Contact",
-    loginTitle: "Login",
-    userLabel: "Username",
-    passLabel: "Password",
-    forgot: "Forgot password?",
-    loginBtn: "Login"
+    contactDetails: "Melih Özdemir, Test Street 1, 8001 Zurich, FFHS HCIM Project"
   }
 };
 
-function applyTranslations(lang) {
-  const t = translations[lang];
-  if (document.getElementById("contact-title")) document.getElementById("contact-title").textContent = t.contactTitle;
-  if (document.getElementById("login-title")) document.getElementById("login-title").textContent = t.loginTitle;
-  if (document.getElementById("user-label")) document.getElementById("user-label").textContent = t.userLabel;
-  if (document.getElementById("pass-label")) document.getElementById("pass-label").textContent = t.passLabel;
-  if (document.getElementById("forgot")) document.getElementById("forgot").textContent = t.forgot;
-  if (document.getElementById("login-btn")) document.getElementById("login-btn").textContent = t.loginBtn;
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  const storedLang = localStorage.getItem("selectedLanguage") || "de";
-  const langSwitcher = document.getElementById("language-switcher");
-  if (langSwitcher) langSwitcher.value = storedLang;
-  applyTranslations(storedLang);
+  const lang = localStorage.getItem("selectedLanguage") || "de";
+  document.getElementById("language-switcher").value = lang;
+  const t = translations[lang];
+  document.getElementById("contact-title").textContent = t.contactTitle;
+  document.getElementById("contact-details").textContent = t.contactDetails;
 });
 
 document.getElementById("language-switcher").addEventListener("change", function () {
   const lang = this.value;
   localStorage.setItem("selectedLanguage", lang);
-  applyTranslations(lang);
+  const t = translations[lang];
+  document.getElementById("contact-title").textContent = t.contactTitle;
+  document.getElementById("contact-details").textContent = t.contactDetails;
 });
 </script>
-
 
 </body>
 </html>
