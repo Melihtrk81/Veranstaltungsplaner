@@ -83,7 +83,16 @@
 <body>
 <nav class="topbar">
 <a href="index.html">Startseite</a>
-<a href="#">Sprache</a>
+
+<div class="language-selector" style="display:inline-block; margin-left: 20px;">
+  <select id="language-switcher" style="padding: 5px; border-radius: 4px; border: none; font-weight: bold;">
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="it">Italiano</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
 <a href="#">Login</a>
 <a href="#">Kontakt</a>
 </nav>
@@ -105,5 +114,57 @@
 <tr><td>Schokoladen-Tasting mit Kindern</td><td>Süßes Event für kleine Schleckermäuler</td><td>6–12 Jahre (mit Eltern)</td><td>16.11.2025</td><td>13 von 20 frei</td></tr>
 </table>
 </div>
+
+<script>
+const translations = {
+  de: {
+    contactTitle: "Kontakt",
+    loginTitle: "Login",
+    userLabel: "Benutzername",
+    passLabel: "Passwort",
+    forgot: "Passwort vergessen?",
+    loginBtn: "Login"
+  },
+  fr: {
+    contactTitle: "Contact",
+    loginTitle: "Connexion",
+    userLabel: "Nom d'utilisateur",
+    passLabel: "Mot de passe",
+    forgot: "Mot de passe oublié ?",
+    loginBtn: "Connexion"
+  },
+  it: {
+    contactTitle: "Contatto",
+    loginTitle: "Accesso",
+    userLabel: "Nome utente",
+    passLabel: "Password",
+    forgot: "Password dimenticata?",
+    loginBtn: "Accedi"
+  },
+  en: {
+    contactTitle: "Contact",
+    loginTitle: "Login",
+    userLabel: "Username",
+    passLabel: "Password",
+    forgot: "Forgot password?",
+    loginBtn: "Login"
+  }
+};
+
+const langSwitcher = document.getElementById("language-switcher");
+if (langSwitcher) {
+  langSwitcher.addEventListener("change", function () {
+    const lang = this.value;
+    const t = translations[lang];
+    if (document.getElementById("contact-title")) document.getElementById("contact-title").textContent = t.contactTitle;
+    if (document.getElementById("login-title")) document.getElementById("login-title").textContent = t.loginTitle;
+    if (document.getElementById("user-label")) document.getElementById("user-label").textContent = t.userLabel;
+    if (document.getElementById("pass-label")) document.getElementById("pass-label").textContent = t.passLabel;
+    if (document.getElementById("forgot")) document.getElementById("forgot").textContent = t.forgot;
+    if (document.getElementById("login-btn")) document.getElementById("login-btn").textContent = t.loginBtn;
+  });
+}
+</script>
+
 </body>
 </html>
