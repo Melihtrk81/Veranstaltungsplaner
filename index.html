@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -147,21 +147,29 @@
   <div class="datetime-box" id="datetime"></div>
 
   <!-- Navigation -->
-  <nav class="topbar">
-    <a href="index.html">Startseite</a>
-    
-<div class="language-selector" style="display:inline-block; margin-left: 20px;">
-  <select id="language-switcher" style="padding: 5px; border-radius: 4px; border: none; font-weight: bold;">
-    <option value="de">Deutsch</option>
-    <option value="fr">Français</option>
-    <option value="it">Italiano</option>
-    <option value="en">English</option>
-  </select>
-</div>
+  
+<nav class="topbar">
+  <a href="index.html" class="active">Startseite</a>
+  <a href="abenteuer.html" class="">Abenteuer</a>
+  <a href="outdoor.html" class="">Outdoor</a>
+  <a href="kulinarik.html" class="">Kulinarik</a>
+  <a href="kultur.html" class="">Kultur</a>
+  <a href="kontakt.html" class="">Kontakt</a>
+  <a href="login.html" class="">Login</a>
+</nav>
+<style>
+  .topbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  .topbar a.active {
+    text-decoration: underline;
+    color: #f39c12;
+  }
+</style>
 
-    <a href="login.html">Login</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
 
   <header>
     <div class="hero-text" id="hero-text">Dein Event beginnt hier</div>
@@ -217,108 +225,7 @@
   </div>
 
   <!-- Uhrzeit & Datum Script -->
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-      const date = now.toLocaleDateString('de-DE', options);
-      const time = now.toLocaleTimeString('de-DE');
-      document.getElementById('datetime').textContent = `${date} – ${time}`;
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-  </script>
-
-
-<script>
-const translations = {
-  de: {
-    heroText: "Dein Event beginnt hier",
-    exposeTitle: "Exposé",
-    exposeDownload: "Exposé herunterladen",
-    exposeView: "Exposé im neuen Tab ansehen",
-    card1Title: "Outdoor-Events & Natur",
-    card1Text: "Plane spannende Erlebnisse in der Natur – von geführten Wanderungen bis zu Yoga unter freiem Himmel.",
-    card2Title: "Kultur- & Gemeinschaftsevents",
-    card2Text: "Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.",
-    card3Title: "Abenteuer & Erlebnisse",
-    card3Text: "Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.",
-    card4Title: "Genuss- & Kulinarik-Events",
-    card4Text: "Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse."
-  },
-  fr: {
-    heroText: "Votre événement commence ici",
-    exposeTitle: "Exposé",
-    exposeDownload: "Télécharger l'exposé",
-    exposeView: "Voir l'exposé dans un nouvel onglet",
-    card1Title: "Activités de plein air et nature",
-    card1Text: "Organisez des expériences en pleine nature – randonnées guidées ou yoga en plein air.",
-    card2Title: "Événements culturels et communautaires",
-    card2Text: "Visites de villes, lectures publiques ou ateliers créatifs.",
-    card3Title: "Aventures & Expériences",
-    card3Text: "Escape games, randonnées de nuit ou jeux de piste thématiques.",
-    card4Title: "Gastronomie & Dégustation",
-    card4Text: "Festivals culinaires, balades œnologiques ou cours de cuisine."
-  },
-  it: {
-    heroText: "Il tuo evento inizia qui",
-    exposeTitle: "Esposizione",
-    exposeDownload: "Scarica l'esposizione",
-    exposeView: "Visualizza l'esposizione in una nuova scheda",
-    card1Title: "Attività all'aperto e natura",
-    card1Text: "Organizza esperienze nella natura – escursioni guidate o yoga all'aperto.",
-    card2Title: "Eventi culturali e comunitari",
-    card2Text: "Visite guidate, letture o laboratori creativi.",
-    card3Title: "Avventure & Esperienze",
-    card3Text: "Escape room, escursioni notturne o cacce al tesoro tematiche.",
-    card4Title: "Eventi gastronomici",
-    card4Text: "Festival del cibo, passeggiate enogastronomiche o corsi di cucina."
-  },
-  en: {
-    heroText: "Your event starts here",
-    exposeTitle: "Exposé",
-    exposeDownload: "Download exposé",
-    exposeView: "View exposé in new tab",
-    card1Title: "Outdoor & Nature Events",
-    card1Text: "Plan exciting nature experiences – from guided hikes to yoga in the open.",
-    card2Title: "Cultural & Community Events",
-    card2Text: "City tours, readings, or creative workshops.",
-    card3Title: "Adventure & Experiences",
-    card3Text: "Escape rooms, night hikes, or themed discovery tours.",
-    card4Title: "Food & Culinary Events",
-    card4Text: "Food festivals, wine walks, or cooking classes."
-  }
-};
-
-function applyTranslations(lang) {
-  const t = translations[lang];
-  document.getElementById("hero-text").textContent = t.heroText;
-  document.getElementById("expose-title").textContent = t.exposeTitle;
-  document.getElementById("expose-download").textContent = t.exposeDownload;
-  document.getElementById("expose-view").textContent = t.exposeView;
-  document.getElementById("card1-title").textContent = t.card1Title;
-  document.getElementById("card1-text").textContent = t.card1Text;
-  document.getElementById("card2-title").textContent = t.card2Title;
-  document.getElementById("card2-text").textContent = t.card2Text;
-  document.getElementById("card3-title").textContent = t.card3Title;
-  document.getElementById("card3-text").textContent = t.card3Text;
-  document.getElementById("card4-title").textContent = t.card4Title;
-  document.getElementById("card4-text").textContent = t.card4Text;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const storedLang = localStorage.getItem("selectedLanguage") || "de";
-  document.getElementById("language-switcher").value = storedLang;
-  applyTranslations(storedLang);
-});
-
-document.getElementById("language-switcher").addEventListener("change", function () {
-  const lang = this.value;
-  localStorage.setItem("selectedLanguage", lang);
-  applyTranslations(lang);
-});
-</script>
-
+  
 
 </body>
 </html>
