@@ -1,104 +1,109 @@
-
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Genuss- & Kulinarik-Events</title>
-  <style>
+<meta charset="utf-8"/>
+<title>Genuss- &amp; Kulinarik-Events</title>
+<style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #1e1e1e;
+      color: #fff;
       margin: 0;
-      padding: 0;
-      color: #333;
+      padding: 20px;
     }
+
     .topbar {
       background-color: #2c3e50;
       padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: right;
     }
+
     .topbar a {
       color: #fff;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
-    .language-selector select {
-      padding: 5px;
-      border-radius: 4px;
-      border: none;
-      font-weight: bold;
+
+    .topbar a:hover {
+      text-decoration: underline;
     }
+
     .container {
       max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: auto;
+      background: #2b2b2b;
+      border-radius: 8px;
+      padding: 30px;
     }
+
     h1 {
-      color: #2c3e50;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #3a3a3a;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #2b2b2b;
+    }
+
+    .icon-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-title img {
+      height: 24px;
     }
   </style>
 </head>
 <body>
-
 <nav class="topbar">
-  <a href="index.html">Startseite</a>
-  <div class="language-selector">
-    <select id="language-switcher">
-      <option value="de">Deutsch</option>
-      <option value="fr">Français</option>
-      <option value="it">Italiano</option>
-      <option value="en">English</option>
-    </select>
-  </div>
+<a href="index.html">Startseite</a>
+<a href="#">Sprache</a>
+<a href="#">Login</a>
+<a href="#">Kontakt</a>
 </nav>
-
 <div class="container">
-    <h1 id="page-title">Genuss- & Kulinarik-Events</h1>
-    <table>
-      <thead>
-        <tr>
-          <th id="activity-col">Aktivität</th>
-          <th id="desc-col">Beschreibung</th>
-          <th id="age-col">Altersgruppe</th>
-          <th id="date-col">Veranstaltungsdatum</th>
-          <th id="slots-col">Freie Plätze</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td id="act1">Street Food Festival</td>
-          <td id="desc1">Genieße internationale Spezialitäten auf einem Markt.</td>
-          <td id="age1">16–70 Jahre</td>
-          <td>15.07.2025</td>
-          <td>13 von 18 frei</td>
-        </tr>
-        <tr>
-          <td id="act2">Weinwanderung</td>
-          <td id="desc2">Wandere durch Reben mit Degustationen lokaler Weine.</td>
-          <td id="age2">18–70 Jahre</td>
-          <td>15.07.2025</td>
-          <td>16 von 21 frei</td>
-        </tr>
-        <tr>
-          <td id="act3">Kochkurs Italien</td>
-          <td id="desc3">Lerne italienische Klassiker wie Pasta & Risotto kochen.</td>
-          <td id="age3">14–65 Jahre</td>
-          <td>15.07.2025</td>
-          <td>19 von 24 frei</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<script>
-const lang = localStorage.getItem("selectedLanguage") || "de";
-document.getElementById("language-switcher").value = lang;
-// Übersetzungen würden hier geladen – ausgelagert für Klarheit
-</script>
+<div class="icon-title">
+<img alt="Icon" src="https://img.icons8.com/emoji/48/fork-and-knife-with-plate-emoji.png"/>
+<h1>Genuss- &amp; Kulinarik-Events</h1>
+</div>
+<table>
+<tr>
+<th>Aktivität</th>
+<th>Beschreibung</th>
+<th>Altersgruppe</th>
+<th>Veranstaltungsdatum</th><th>Freie Plätze</th></tr>
+<tr><td>Streetfood-Festival</td><td>Essensstände &amp; Musik im Park</td><td>Alle Altersklassen</td><td>27.06.2025</td><td>8 von 20 frei</td></tr>
+<tr><td>Weinverkostung &amp; Käseabend</td><td>Wein und Käse-Tasting mit Erklärung</td><td>Ab 25 Jahren</td><td>22.07.2025</td><td>8 von 20 frei</td></tr>
+<tr><td>Veganer Kochkurs</td><td>Gemeinsames Kochen mit Schwerpunkt gesunde Ernährung</td><td>18–50 Jahre</td><td>25.07.2025</td><td>4 von 20 frei</td></tr>
+<tr><td>Bierbrau-Workshop</td><td>Einführung ins Brauen &amp; Verkostung</td><td>Ab 18 Jahren</td><td>24.10.2025</td><td>9 von 20 frei</td></tr>
+<tr><td>Schokoladen-Tasting mit Kindern</td><td>Süßes Event für kleine Schleckermäuler</td><td>6–12 Jahre (mit Eltern)</td><td>16.11.2025</td><td>13 von 20 frei</td></tr>
+</table>
+</div>
 </body>
 </html>

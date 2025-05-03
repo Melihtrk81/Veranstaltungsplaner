@@ -3,7 +3,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Kontakt</title>
+  <title>Kontakt – Veranstaltungsplaner</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,90 +12,59 @@
       padding: 0;
       color: #333;
     }
+
     .topbar {
       background-color: #2c3e50;
       padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: right;
     }
+
     .topbar a {
       color: #fff;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
-    .language-selector select {
-      padding: 5px;
-      border-radius: 4px;
-      border: none;
-      font-weight: bold;
+
+    .topbar a:hover {
+      text-decoration: underline;
     }
+
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     h1 {
       color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-<nav class="topbar">
-  <a href="index.html">Startseite</a>
-  <div class="language-selector">
-    <select id="language-switcher">
-      <option value="de">Deutsch</option>
-      <option value="fr">Français</option>
-      <option value="it">Italiano</option>
-      <option value="en">English</option>
-    </select>
+  <nav class="topbar">
+    <a href="index.html">Startseite</a>
+    <a href="#">Sprache</a>
+    <a href="#">Login</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+
+  <div class="container">
+    <h1>Kontakt</h1>
+    <p><strong>Name:</strong> Melih Özdemir</p>
+    <p><strong>Adresse:</strong> Teststrasse 1, 8001 Zürich</p>
+    <p><strong>Projekt:</strong> Veranstaltungsplaner – FFHS HCIM</p>
   </div>
-</nav>
 
-<div class="container">
-    <h1 id="contact-title">Kontakt</h1>
-    <p id="contact-details">Melih Özdemir, Teststrasse 1, 8001 Zürich, Projekt FFHS HCIM</p>
-  </div>
-<script>
-const translations = {
-  de: {
-    contactTitle: "Kontakt",
-    contactDetails: "Melih Özdemir, Teststrasse 1, 8001 Zürich, Projekt FFHS HCIM"
-  },
-  fr: {
-    contactTitle: "Contact",
-    contactDetails: "Melih Özdemir, Rue Test 1, 8001 Zurich, Projet FFHS HCIM"
-  },
-  it: {
-    contactTitle: "Contatto",
-    contactDetails: "Melih Özdemir, Via Test 1, 8001 Zurigo, Progetto FFHS HCIM"
-  },
-  en: {
-    contactTitle: "Contact",
-    contactDetails: "Melih Özdemir, Test Street 1, 8001 Zurich, FFHS HCIM Project"
-  }
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-  const lang = localStorage.getItem("selectedLanguage") || "de";
-  document.getElementById("language-switcher").value = lang;
-  const t = translations[lang];
-  document.getElementById("contact-title").textContent = t.contactTitle;
-  document.getElementById("contact-details").textContent = t.contactDetails;
-});
-
-document.getElementById("language-switcher").addEventListener("change", function () {
-  const lang = this.value;
-  localStorage.setItem("selectedLanguage", lang);
-  const t = translations[lang];
-  document.getElementById("contact-title").textContent = t.contactTitle;
-  document.getElementById("contact-details").textContent = t.contactDetails;
-});
-</script>
 </body>
 </html>

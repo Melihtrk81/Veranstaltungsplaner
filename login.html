@@ -3,7 +3,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Login – Veranstaltungsplaner</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,113 +12,109 @@
       padding: 0;
       color: #333;
     }
+
     .topbar {
       background-color: #2c3e50;
       padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: right;
     }
+
     .topbar a {
       color: #fff;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
-    .language-selector select {
-      padding: 5px;
-      border-radius: 4px;
-      border: none;
-      font-weight: bold;
+
+    .topbar a:hover {
+      text-decoration: underline;
     }
+
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 30px;
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     h1 {
       color: #2c3e50;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .actions a {
+      font-size: 0.9em;
+      text-decoration: none;
+      color: #3498db;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    .actions button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .actions button:hover {
+      background-color: #2980b9;
     }
   </style>
 </head>
 <body>
 
-<nav class="topbar">
-  <a href="index.html">Startseite</a>
-  <div class="language-selector">
-    <select id="language-switcher">
-      <option value="de">Deutsch</option>
-      <option value="fr">Français</option>
-      <option value="it">Italiano</option>
-      <option value="en">English</option>
-    </select>
+  <nav class="topbar">
+    <a href="index.html">Startseite</a>
+    <a href="#">Sprache</a>
+    <a href="login.html">Login</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+
+  <div class="container">
+    <h1>Login</h1>
+    <form>
+      <label for="username">Benutzername</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Passwort</label>
+      <input type="password" id="password" name="password" required>
+
+      <div class="actions">
+        <a href="#">Passwort vergessen?</a>
+        <button type="submit">Login</button>
+      </div>
+    </form>
   </div>
-</nav>
 
-<div class="container">
-    <h1 id="login-title">Login</h1>
-    <label for="username" id="user-label">Benutzername</label>
-    <input type="text" id="username">
-    <label for="password" id="pass-label">Passwort</label>
-    <input type="password" id="password">
-    <a href="#" class="forgot" id="forgot">Passwort vergessen?</a>
-    <button type="submit" id="login-btn">Login</button>
-  </div>
-<script>
-const translations = {
-  de: {
-    loginTitle: "Login",
-    userLabel: "Benutzername",
-    passLabel: "Passwort",
-    forgot: "Passwort vergessen?",
-    loginBtn: "Login"
-  },
-  fr: {
-    loginTitle: "Connexion",
-    userLabel: "Nom d'utilisateur",
-    passLabel: "Mot de passe",
-    forgot: "Mot de passe oublié ?",
-    loginBtn: "Connexion"
-  },
-  it: {
-    loginTitle: "Accesso",
-    userLabel: "Nome utente",
-    passLabel: "Password",
-    forgot: "Password dimenticata?",
-    loginBtn: "Accedi"
-  },
-  en: {
-    loginTitle: "Login",
-    userLabel: "Username",
-    passLabel: "Password",
-    forgot: "Forgot password?",
-    loginBtn: "Login"
-  }
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-  const lang = localStorage.getItem("selectedLanguage") || "de";
-  document.getElementById("language-switcher").value = lang;
-  const t = translations[lang];
-  document.getElementById("login-title").textContent = t.loginTitle;
-  document.getElementById("user-label").textContent = t.userLabel;
-  document.getElementById("pass-label").textContent = t.passLabel;
-  document.getElementById("forgot").textContent = t.forgot;
-  document.getElementById("login-btn").textContent = t.loginBtn;
-});
-
-document.getElementById("language-switcher").addEventListener("change", function () {
-  const lang = this.value;
-  localStorage.setItem("selectedLanguage", lang);
-  const t = translations[lang];
-  document.getElementById("login-title").textContent = t.loginTitle;
-  document.getElementById("user-label").textContent = t.userLabel;
-  document.getElementById("pass-label").textContent = t.passLabel;
-  document.getElementById("forgot").textContent = t.forgot;
-  document.getElementById("login-btn").textContent = t.loginBtn;
-});
-</script>
 </body>
 </html>
