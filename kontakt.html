@@ -76,6 +76,7 @@
   </div>
 
 
+
 <script>
 const translations = {
   de: {
@@ -112,20 +113,30 @@ const translations = {
   }
 };
 
-const langSwitcher = document.getElementById("language-switcher");
-if (langSwitcher) {
-  langSwitcher.addEventListener("change", function () {
-    const lang = this.value;
-    const t = translations[lang];
-    if (document.getElementById("contact-title")) document.getElementById("contact-title").textContent = t.contactTitle;
-    if (document.getElementById("login-title")) document.getElementById("login-title").textContent = t.loginTitle;
-    if (document.getElementById("user-label")) document.getElementById("user-label").textContent = t.userLabel;
-    if (document.getElementById("pass-label")) document.getElementById("pass-label").textContent = t.passLabel;
-    if (document.getElementById("forgot")) document.getElementById("forgot").textContent = t.forgot;
-    if (document.getElementById("login-btn")) document.getElementById("login-btn").textContent = t.loginBtn;
-  });
+function applyTranslations(lang) {
+  const t = translations[lang];
+  if (document.getElementById("contact-title")) document.getElementById("contact-title").textContent = t.contactTitle;
+  if (document.getElementById("login-title")) document.getElementById("login-title").textContent = t.loginTitle;
+  if (document.getElementById("user-label")) document.getElementById("user-label").textContent = t.userLabel;
+  if (document.getElementById("pass-label")) document.getElementById("pass-label").textContent = t.passLabel;
+  if (document.getElementById("forgot")) document.getElementById("forgot").textContent = t.forgot;
+  if (document.getElementById("login-btn")) document.getElementById("login-btn").textContent = t.loginBtn;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const storedLang = localStorage.getItem("selectedLanguage") || "de";
+  const langSwitcher = document.getElementById("language-switcher");
+  if (langSwitcher) langSwitcher.value = storedLang;
+  applyTranslations(storedLang);
+});
+
+document.getElementById("language-switcher").addEventListener("change", function () {
+  const lang = this.value;
+  localStorage.setItem("selectedLanguage", lang);
+  applyTranslations(lang);
+});
 </script>
+
 
 </body>
 </html>
