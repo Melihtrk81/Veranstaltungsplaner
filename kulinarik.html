@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -40,36 +41,23 @@
     h1 {
       color: #2c3e50;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ccc;
-    }
-    th {
-      background-color: #ecf0f1;
-    }
   </style>
 </head>
 <body>
 
-  <nav class="topbar">
-    <a href="index.html">Startseite</a>
-    <div class="language-selector">
-      <select id="language-switcher">
-        <option value="de">Deutsch</option>
-        <option value="fr">Français</option>
-        <option value="it">Italiano</option>
-        <option value="en">English</option>
-      </select>
-    </div>
-  </nav>
+<nav class="topbar">
+  <a href="index.html">Startseite</a>
+  <div class="language-selector">
+    <select id="language-switcher">
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="it">Italiano</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+</nav>
 
-  <div class="container">
+<div class="container">
     <h1 id="page-title">Genuss- & Kulinarik-Events</h1>
     <table>
       <thead>
@@ -107,12 +95,10 @@
       </tbody>
     </table>
   </div>
-
 <script>
 const lang = localStorage.getItem("selectedLanguage") || "de";
 document.getElementById("language-switcher").value = lang;
 // Übersetzungen würden hier geladen – ausgelagert für Klarheit
 </script>
-
 </body>
 </html>
