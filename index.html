@@ -229,6 +229,7 @@
     updateDateTime();
   </script>
 
+
 <script>
 const translations = {
   de: {
@@ -289,8 +290,7 @@ const translations = {
   }
 };
 
-document.getElementById("language-switcher").addEventListener("change", function () {
-  const lang = this.value;
+function applyTranslations(lang) {
   const t = translations[lang];
   document.getElementById("hero-text").textContent = t.heroText;
   document.getElementById("expose-title").textContent = t.exposeTitle;
@@ -304,8 +304,21 @@ document.getElementById("language-switcher").addEventListener("change", function
   document.getElementById("card3-text").textContent = t.card3Text;
   document.getElementById("card4-title").textContent = t.card4Title;
   document.getElementById("card4-text").textContent = t.card4Text;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const storedLang = localStorage.getItem("selectedLanguage") || "de";
+  document.getElementById("language-switcher").value = storedLang;
+  applyTranslations(storedLang);
+});
+
+document.getElementById("language-switcher").addEventListener("change", function () {
+  const lang = this.value;
+  localStorage.setItem("selectedLanguage", lang);
+  applyTranslations(lang);
 });
 </script>
+
 
 </body>
 </html>
