@@ -149,13 +149,22 @@
   <!-- Navigation -->
   <nav class="topbar">
     <a href="index.html">Startseite</a>
-    <a href="#">Sprache</a>
+    
+<div class="language-selector" style="display:inline-block; margin-left: 20px;">
+  <select id="language-switcher" style="padding: 5px; border-radius: 4px; border: none; font-weight: bold;">
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="it">Italiano</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
     <a href="login.html">Login</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
 
   <header>
-    <div class="hero-text">Dein Event beginnt hier</div>
+    <div class="hero-text" id="hero-text">Dein Event beginnt hier</div>
     <img src="img/startseite.gif" alt="Startseitenbild">
   </header>
 
@@ -166,8 +175,8 @@
         <div class="card">
           <img src="img/wandern.jpg" alt="Natur & Outdoor">
           <div class="card-content">
-            <h3>Outdoor-Events & Natur</h3>
-            <p>Plane spannende Erlebnisse in der Natur – von geführten Wanderungen bis zu Yoga unter freiem Himmel.</p>
+            <h3 id="card1-title">Outdoor-Events & Natur</h3>
+            <p id="card1-text">Plane spannende Erlebnisse in der Natur – von geführten Wanderungen bis zu Yoga unter freiem Himmel.</p>
           </div>
         </div>
       </a>
@@ -175,8 +184,8 @@
         <div class="card">
           <img src="img/kultur.jpg" alt="Kultur & Community">
           <div class="card-content">
-            <h3>Kultur- & Gemeinschaftsevents</h3>
-            <p>Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.</p>
+            <h3 id="card2-title">Kultur- & Gemeinschaftsevents</h3>
+            <p id="card2-text">Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.</p>
           </div>
         </div>
       </a>
@@ -184,8 +193,8 @@
         <div class="card">
           <img src="img/film.jpg" alt="Abenteuer & Action">
           <div class="card-content">
-            <h3>Abenteuer & Erlebnisse</h3>
-            <p>Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.</p>
+            <h3 id="card3-title">Abenteuer & Erlebnisse</h3>
+            <p id="card3-text">Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.</p>
           </div>
         </div>
       </a>
@@ -193,17 +202,17 @@
         <div class="card">
           <img src="img/food.jpg" alt="Kulinarik & Genuss">
           <div class="card-content">
-            <h3>Genuss- & Kulinarik-Events</h3>
-            <p>Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse.</p>
+            <h3 id="card4-title">Genuss- & Kulinarik-Events</h3>
+            <p id="card4-text">Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse.</p>
           </div>
         </div>
       </a>
     </div>
 
     <div class="upload-section">
-      <h3>Exposé</h3>
-      <a href="expose.pdf" class="button" download>Exposé herunterladen</a>
-      <a href="expose.pdf" class="button" target="_blank">Exposé im neuen Tab ansehen</a>
+      <h3 id="expose-title">Exposé</h3>
+      <a href="expose.pdf" class="button" download id="expose-download">Exposé herunterladen</a>
+      <a href="expose.pdf" class="button" target="_blank" id="expose-view">Exposé im neuen Tab ansehen</a>
     </div>
   </div>
 
@@ -219,6 +228,84 @@
     setInterval(updateDateTime, 1000);
     updateDateTime();
   </script>
+
+<script>
+const translations = {
+  de: {
+    heroText: "Dein Event beginnt hier",
+    exposeTitle: "Exposé",
+    exposeDownload: "Exposé herunterladen",
+    exposeView: "Exposé im neuen Tab ansehen",
+    card1Title: "Outdoor-Events & Natur",
+    card1Text: "Plane spannende Erlebnisse in der Natur – von geführten Wanderungen bis zu Yoga unter freiem Himmel.",
+    card2Title: "Kultur- & Gemeinschaftsevents",
+    card2Text: "Kulturelle Veranstaltungen wie Stadtführungen, Lesungen oder kreative Workshops.",
+    card3Title: "Abenteuer & Erlebnisse",
+    card3Text: "Events für Action-Fans – Escape Rooms, Nachtwanderungen oder thematische Erkundungstouren.",
+    card4Title: "Genuss- & Kulinarik-Events",
+    card4Text: "Kulinarische Highlights wie Food-Festivals, Weinwanderungen oder Kochkurse."
+  },
+  fr: {
+    heroText: "Votre événement commence ici",
+    exposeTitle: "Exposé",
+    exposeDownload: "Télécharger l'exposé",
+    exposeView: "Voir l'exposé dans un nouvel onglet",
+    card1Title: "Activités de plein air et nature",
+    card1Text: "Organisez des expériences en pleine nature – randonnées guidées ou yoga en plein air.",
+    card2Title: "Événements culturels et communautaires",
+    card2Text: "Visites de villes, lectures publiques ou ateliers créatifs.",
+    card3Title: "Aventures & Expériences",
+    card3Text: "Escape games, randonnées de nuit ou jeux de piste thématiques.",
+    card4Title: "Gastronomie & Dégustation",
+    card4Text: "Festivals culinaires, balades œnologiques ou cours de cuisine."
+  },
+  it: {
+    heroText: "Il tuo evento inizia qui",
+    exposeTitle: "Esposizione",
+    exposeDownload: "Scarica l'esposizione",
+    exposeView: "Visualizza l'esposizione in una nuova scheda",
+    card1Title: "Attività all'aperto e natura",
+    card1Text: "Organizza esperienze nella natura – escursioni guidate o yoga all'aperto.",
+    card2Title: "Eventi culturali e comunitari",
+    card2Text: "Visite guidate, letture o laboratori creativi.",
+    card3Title: "Avventure & Esperienze",
+    card3Text: "Escape room, escursioni notturne o cacce al tesoro tematiche.",
+    card4Title: "Eventi gastronomici",
+    card4Text: "Festival del cibo, passeggiate enogastronomiche o corsi di cucina."
+  },
+  en: {
+    heroText: "Your event starts here",
+    exposeTitle: "Exposé",
+    exposeDownload: "Download exposé",
+    exposeView: "View exposé in new tab",
+    card1Title: "Outdoor & Nature Events",
+    card1Text: "Plan exciting nature experiences – from guided hikes to yoga in the open.",
+    card2Title: "Cultural & Community Events",
+    card2Text: "City tours, readings, or creative workshops.",
+    card3Title: "Adventure & Experiences",
+    card3Text: "Escape rooms, night hikes, or themed discovery tours.",
+    card4Title: "Food & Culinary Events",
+    card4Text: "Food festivals, wine walks, or cooking classes."
+  }
+};
+
+document.getElementById("language-switcher").addEventListener("change", function () {
+  const lang = this.value;
+  const t = translations[lang];
+  document.getElementById("hero-text").textContent = t.heroText;
+  document.getElementById("expose-title").textContent = t.exposeTitle;
+  document.getElementById("expose-download").textContent = t.exposeDownload;
+  document.getElementById("expose-view").textContent = t.exposeView;
+  document.getElementById("card1-title").textContent = t.card1Title;
+  document.getElementById("card1-text").textContent = t.card1Text;
+  document.getElementById("card2-title").textContent = t.card2Title;
+  document.getElementById("card2-text").textContent = t.card2Text;
+  document.getElementById("card3-title").textContent = t.card3Title;
+  document.getElementById("card3-text").textContent = t.card3Text;
+  document.getElementById("card4-title").textContent = t.card4Title;
+  document.getElementById("card4-text").textContent = t.card4Text;
+});
+</script>
 
 </body>
 </html>
